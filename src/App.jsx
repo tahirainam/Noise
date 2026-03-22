@@ -1,5 +1,4 @@
 
-import SidebarLayout from './components/SidebarLayout.jsx';
 import {useState} from "react";
 import Navbar from "./components/Navbar.jsx";
 import Sidebar from "./components/Sidebar.jsx";
