@@ -5,6 +5,7 @@ import Sidebar from "./components/Sidebar.jsx";
 import Sketch from "./pfive/sketch.jsx";
 import AnotherArt from "./pfive/anotherArt.jsx";
 import "./index.css";
+import Footer from "./components/Footer.jsx";
 
 function App() {
   const [activeArt, setActiveArt] = useState('Sketch');
@@ -26,6 +27,7 @@ function App() {
         </main>
         <Sidebar activeArt={activeArt} onSelect={setActiveArt} />
       </div>
+      <Footer/>
     </>
   )
 }

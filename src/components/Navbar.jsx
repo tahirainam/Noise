@@ -1,10 +1,12 @@
 import "../css/Navbar.css";
 function Navbar() {
+  let heading = "noise • ";
+  let repeated = heading.repeat(20);
   return (
     <>
-      <nav className="mt-2 overflow-hidden border-t-2 border-b-2 border-dashed border-gray-400 py-3">
-        <span className="marquee inline-block whitespace-nowrap text-2xl font-medium tracking-widest">
-          NOISE
+      <nav className="bg-black text-white overflow-hidden border-t-4 border-b-4 border-dashed border-white py-1">
+        <span className="marquee inline-block whitespace-nowrap text-md font-medium tracking-widest">
+          {repeated + repeated}
         </span>
       </nav>
     </>
