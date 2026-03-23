@@ -29,7 +29,7 @@ const Sketch = () => {
     };
   }, []);
 
-  return <div ref={sketchRef}><a className="px-2 bg-black text-white" href="https://www.google.com" target="_blank" rel="noopener noreferrer">sketch-read</a></div>;
+  return (<div className="flex flex-col"><a className="w-25 mb-1 px-2 bg-black text-white" href="https://www.google.com" target="_blank" rel="noopener noreferrer">sketch-read</a><div className="border-2 border-black" ref={sketchRef}></div></div>);
 };
 
 export default Sketch;

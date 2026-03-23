@@ -4,11 +4,11 @@ function Footer() {
   let repeated = heading.repeat(10);
   return (
     <>
-      <nav className="bg-black text-white overflow-hidden border-t-2 border-b-2 border-dashed border-white">
+      <Footer className="fixed bg-black text-white overflow-hidden border-t-2 border-b-2 border-dashed border-white">
         <span className="marquee inline-block whitespace-nowrap text-sm font-medium tracking-widest">
           {repeated + repeated}
         </span>
-      </nav>
+      </Footer>
     </>
   );
 }
