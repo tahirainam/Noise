@@ -1,17 +1,17 @@
-import React, { useRef, useEffect } from "react";
-import p5 from "p5";
+import { useRef, useEffect } from "react";
 
-const Sketch = () => {
+function Sketch() {
   const sketchRef = useRef();
+  const p5InstanceRef = useRef(null);
 
   useEffect(() => {
-    // Define the p5 sketch
+    if (p5InstanceRef.current) return;
+
     const sketch = (p) => {
       p.setup = () => {
-        p.createCanvas(1000, 280);
+        p.createCanvas(1000, 520);
         p.frameRate(30);
       };
-
       p.draw = () => {
         p.noFill();
         p.stroke(0);
@@ -19,33 +19,22 @@ const Sketch = () => {
       };
     };
 
-    let p5Instance;
+    p5InstanceRef.current = new window.p5(sketch, sketchRef.current);
 
-    // Small delay prevents StrictMode double-mount race condition
-    const timer = setTimeout(() => {
-      p5Instance = new p5(sketch, sketchRef.current);
-    }, 0);
-
-    // Cleanup on unmount
     return () => {
-      clearTimeout(timer);
-      if (p5Instance) p5Instance.remove();
+      p5InstanceRef.current.remove();
+      p5InstanceRef.current = null;
     };
   }, []);
 
   return (
     <div className="flex flex-col">
-      <a
-        className="w-25 mb-1 px-2 bg-black text-white"
-        href="https://www.google.com"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a className="w-25 mb-1 px-2 bg-black text-white" href="https://www.google.com" target="_blank" rel="noopener noreferrer">
         sketch-read
       </a>
       <div className="border-2 border-black" ref={sketchRef}></div>
     </div>
   );
-};
+}
 
 export default Sketch;
